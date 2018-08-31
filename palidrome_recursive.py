@@ -8,11 +8,10 @@
 def is_palindrome(s):
     if s=='':
         return True
-    if len(s)%2!=0:
-        return False
     i=0
     j=-1
-    while i < len(s)/2:
+    s=s.lower()
+    while i < len(s):
         if s[i]!=s[j]:
             return False
         i+=1
