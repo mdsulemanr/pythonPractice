@@ -31,3 +31,4 @@ print (freq_analysis("adca"))
 
 print (freq_analysis('bewarethebunnies'))
 #>>> [0.0625, 0.125, 0.0, 0.0, ..., 0.0]
+
