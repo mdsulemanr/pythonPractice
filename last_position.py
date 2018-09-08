@@ -4,14 +4,9 @@
 # input number. The order in which the equations are printed matters.
 
 def print_multiplication_table( n ):
-    i=1
-    while i<=n:
-        j=1
-        while j<=n:
-            print(i, ' * ', j, ' = ', i * j)
-            j+=1
-        i+=1
-
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            print(i, ' * ', j, ' = ', i*j)
 
 
 print_multiplication_table(2)
