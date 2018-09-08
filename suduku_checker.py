@@ -65,27 +65,20 @@ def check_sudoku(matrix):
     for i in range(0, n):
         if n!=len(matrix[i]):
             return False
-    number=1
-    while number <=n:
-        i=0
-        while i<n:
-            j=0
-            row_check=0
-            col_check=0
-            while j<n:
+
+    for number in range(1, n+1):
+        for i in range(0, n):
+            row_check = 0
+            col_check = 0
+            for j in range(0, n):
                 if matrix[i][j]==number:
                     row_check+=1
                 if matrix[j][i]==number:
                     col_check+=1
-                j+=1
             if row_check!=1 or col_check!=1:
                 return False
-            else:
-                i+=1
-        number += 1
 
     return True
-
 
 
 
