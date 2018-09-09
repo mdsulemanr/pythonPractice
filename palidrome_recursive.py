@@ -6,18 +6,14 @@
 # if they do match, is the middle a palindrome?
 
 def is_palindrome(s):
-    if s=='':
+    if len(s) < 2:
         return True
-    i=0
-    j=-1
     s=s.lower()
-    while i < len(s):
-        if s[i]!=s[j]:
-            return False
-        i+=1
-        j-=1
+    if s[0]!=s[-1]:
+        return False
+    else:
+        is_palindrome(s[1:-1])
     return True
-
 
 
 print(is_palindrome(''))
