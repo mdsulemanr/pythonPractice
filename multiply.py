@@ -3,17 +3,22 @@ def addition(a, b):
     for i in range(0, len(a)):
         if len(a[i])!=len(b):
             return False
-    ans=[]
+    row = []
+    ans = []
     i=0
     while i < len(a):
-        ans.append([])
         j=0
-        s=0
-        for j in range (0, len(a[i])):
-            s+=(a[i][j]*b[j][i])
-        ans[i].append(s)
+        while j < len(b[0]):
+            sums = 0
+            k=0
+            while k < len(b):
+                sums = sums + (a[i][k] * b[k][j])
+                k+=1
+            j+=1
+            row.append(sums)
         i+=1
-
+        ans.append(row)
+        row = []
     return ans
 
 a=[[1, 2],
