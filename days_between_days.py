@@ -66,7 +66,7 @@ def test():
                   ((2011,1,1,2012,8,8), 585 ),
                   ((1900,1,1,1999,12,31), 36523)]
     for (args, answer) in test_cases:
-        result = daysBetweenDates(*args)
+        result = daysBetweenDates(args)
         if result != answer:
             print ("Test with data:", args, "failed")
         else:
