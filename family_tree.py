@@ -28,10 +28,10 @@ ada_family = { 'Judith Blunt-Lytton': ['Anne Isabella Blunt', 'Wilfrid Scawen Bl
 
 def ancestors(genealogy, person):
     if person in genealogy:
-        parents=genealogy[person]
-        result=parents
-        for parent in parents:
-            result += ancestors(genealogy, parent)
+        mylist=genealogy[person]
+        result = mylist
+        for i in mylist:
+            result += ancestors(genealogy, i)
         return result
     else:
         return []
