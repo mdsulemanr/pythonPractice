@@ -47,57 +47,13 @@ def convert_seconds(number):
 
 
 def download_time(filesize, fileUnit, BandWidth, BandWiddthUnit):
-    if fileUnit[0]=='k':
-        if fileUnit[1]=='b':
-            size=filesize * 2 ** 10
-        else:
-            size=filesize * 2 ** 10 * 8
-    elif fileUnit[0]=='M':
-        if fileUnit[1]=='b':
-            size=filesize * 2 ** 20
-        else:
-            size=filesize * 2 ** 20 * 8
-    elif fileUnit[0]=='G':
-        if fileUnit[1]=='b':
-            size=filesize * 2 ** 30
-        else:
-            size=filesize * 2 ** 30 * 8
-    else:
-        if fileUnit[0]=='b':
-            size=filesize * 2 ** 40
-        else:
-            size=filesize * 2 ** 40 * 8
-    size = size * 1.0
+    convert_unit={'fileUnit/BandWiddthUnit':{'kb': 2 ** 10, 'kB': 2 ** 10 * 8, 'Mb': 2 ** 20, 'MB': 2 ** 20 * 8, 'Gb': 2 ** 30, 'GB': 2 ** 30 * 8, 'Tb': 2 ** 40, 'TB': 2 ** 40 * 8}}
 
-
-    if BandWiddthUnit[0]=='k':
-        if BandWiddthUnit[1]=='b':
-            speed=BandWidth * 2 ** 10
-            time=size/speed
-        else:
-            speed = BandWidth * 2 ** 10 * 8
-            time = size / speed
-    elif BandWiddthUnit[0]=='M':
-        if BandWiddthUnit[1]=='b':
-            speed = BandWidth * 2 ** 20
-            time = size / speed
-        else:
-            speed = BandWidth * 2 ** 20 *8
-            time = size / speed
-    elif BandWiddthUnit[0]=='G':
-        if BandWiddthUnit[1]=='b':
-            speed = BandWidth * 2 ** 30
-            time = size / speed
-        else:
-            speed = BandWidth * 2 ** 30 * 8
-            time = size / speed
-    else:
-        if BandWiddthUnit[0]=='b':
-            speed = BandWidth * 2 ** 40
-            time = size / speed
-        else:
-            speed = BandWidth * 2 ** 40 * 8
-            time = size / speed
+    if fileUnit in convert_unit['fileUnit/BandWiddthUnit']:
+        size=convert_unit['fileUnit/BandWiddthUnit'][fileUnit] * filesize
+    if BandWiddthUnit in convert_unit['fileUnit/BandWiddthUnit']:
+        speed = convert_unit['fileUnit/BandWiddthUnit'][BandWiddthUnit] * BandWidth
+        time = size / speed
 
     return convert_seconds(time)
 
@@ -119,4 +75,3 @@ print(download_time(10, 'MB', 2, 'kB'))
 
 print(download_time(10, 'MB', 2, 'kb'))
 # >>> 11 hours, 22 minutes, 40 seconds  # 40.0 seconds is also acceptable
-
