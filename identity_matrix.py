@@ -17,18 +17,15 @@ def is_identity_matrix(matrix):
         if n!=len(matrix[i]):
             return False
 
-    i=0
-    while i<n:
-        j=0
-        while j<n:
+    for i in range(0, n):
+        for j in range(0, n):
             if i==j:
                 if matrix[i][j]!=1:
                     return False
             else:
                 if matrix[i][j]!=0:
                     return False
-            j+=1
-        i+=1
+
     return True
 
 
