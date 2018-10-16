@@ -1,3 +1,4 @@
+path_to_file='/home/suleman/Downloads/citation.txt'
 def citation(path_to_file):
     f = open(path_to_file, 'r')
     file = f.read()
@@ -45,7 +46,7 @@ def citation(path_to_file):
 
 def paper_check(year1, year2):
     number_of_papers=0
-    record = citation('/home/suleman/Downloads/citation.txt')
+    record = citation(path_to_file)
     for dic in record:
         for key in dic:
             for i in dic[key]:
@@ -60,7 +61,7 @@ print(paper_check(2001, 2010))
 print(paper_check(2011, 2018))
 
 def co_authors(author):
-    record = citation('/home/suleman/Downloads/citation.txt')
+    record = citation(path_to_file)
     authors_list=[]
     for dic in record:
         for key in dic:
@@ -75,7 +76,7 @@ print(co_authors('Marc Sturm'))
 
 
 def author_contribution(author, year):
-    record = citation('/home/suleman/Downloads/citation.txt')
+    record = citation(path_to_file)
     ans=0
     for dic in record:
         for key in dic:
