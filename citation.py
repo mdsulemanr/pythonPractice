@@ -61,7 +61,6 @@ print(paper_check(1981, 1990))
 print(paper_check(1991, 2000))
 print(paper_check(2001, 2010))
 print(paper_check(2011, 2018))
-print(paper_check(2009, 2018))
 
 def co_authors(author):
     record = citation(path_to_file)
