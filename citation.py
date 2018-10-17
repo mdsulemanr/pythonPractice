@@ -1,4 +1,5 @@
 path_to_file='/home/suleman/Downloads/citation.txt'
+
 def citation(path_to_file):
     f = open(path_to_file, 'r')
     file = f.read()
@@ -54,6 +55,7 @@ def paper_check(year1, year2):
                     if dic[key][i] in range(year1, year2+1):
                         number_of_papers+=1
     return number_of_papers
+
 print(paper_check(1970, 1980))
 print(paper_check(1981, 1990))
 print(paper_check(1991, 2000))

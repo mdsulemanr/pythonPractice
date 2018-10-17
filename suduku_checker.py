@@ -81,9 +81,6 @@ def check_sudoku(matrix):
     return True
 
 
-
-
-
 print(check_sudoku(incorrect))
 # >>> False
 
