@@ -79,6 +79,7 @@ print(co_authors('Marc Sturm'))
 
 def author_contribution(author, year):
     record = citation(path_to_file)
+
     ans=0
     for dic in record:
         for key in dic:

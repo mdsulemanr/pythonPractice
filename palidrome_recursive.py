@@ -81,6 +81,7 @@ def is_palindrome(s):
         is_palindrome(s[1:-1])
     return True
 
+
 print(is_palindrome(''))
 # >>> True
 print(is_palindrome('abab'))

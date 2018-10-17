@@ -57,6 +57,7 @@ def download_time(filesize, fileUnit, BandWidth, BandWiddthUnit):
 
     return convert_seconds(time)
 
+
 print(download_time(1024, 'kB', 1, 'MB'))
 # >>> 0 hours, 0 minutes, 1 second
 
