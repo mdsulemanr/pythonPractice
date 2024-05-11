@@ -12,13 +12,22 @@
 def is_list(p):
     return isinstance(p, list)
 
+# def deep_reverse(p):
+#     q=[]
+#     for i in reversed(p):
+#         if is_list(i):
+#           q.append(deep_reverse(i))
+#         else:
+#             q.append(i)
+#     return q
+
 def deep_reverse(p):
     q=[]
     for i in reversed(p):
-        if is_list(i):
-          q.append(deep_reverse(i))
+        if not is_list(i):
+          q.append(i)
         else:
-            q.append(i)
+            q.append(deep_reverse(i))
     return q
 
 
