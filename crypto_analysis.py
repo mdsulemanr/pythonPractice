@@ -16,8 +16,8 @@
 
 def freq_analysis(message):
     result=[]
-    for i in range(97, 122):
-        freq=message.count(chr(i))/len(message)
+    for letter in range(97, 123):
+        freq=message.count(chr(letter))/len(message)
         result.append(freq)
     return result
 

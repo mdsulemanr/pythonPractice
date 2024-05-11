@@ -25,32 +25,34 @@
 # is given in megabytes (MB).
 
 def convert_seconds(number):
-    h=int(number/3600)
-    m=int((number%3600)/60)
-    s=number%60
+    h = int(number / 3600)
+    m = int((number % 3600) / 60)
+    s = number % 60
 
-    time=''
-    if h!=0:
-        time+=str(h) + ' hours '
+    time = ''
+    if h != 0:
+        time += str(h) + ' hours '
     else:
-        time+=str(h) + ' hour '
-    if m!=0:
-        time+=str(m) + ' minutes '
+        time += str(h) + ' hour '
+    if m != 0:
+        time += str(m) + ' minutes '
     else:
-        time+=str(m) + ' minute '
-    if s!=0:
-        time+=str(s) + ' seconds '
+        time += str(m) + ' minute '
+    if s != 0:
+        time += str(s) + ' seconds '
     else:
-        time+=str(s) + ' second '
+        time += str(s) + ' second '
 
     return time
 
 
 def download_time(filesize, fileUnit, BandWidth, BandWiddthUnit):
-    convert_unit={'fileUnit/BandWiddthUnit':{'kb': 2 ** 10, 'kB': 2 ** 10 * 8, 'Mb': 2 ** 20, 'MB': 2 ** 20 * 8, 'Gb': 2 ** 30, 'GB': 2 ** 30 * 8, 'Tb': 2 ** 40, 'TB': 2 ** 40 * 8}}
+    convert_unit = {
+        'fileUnit/BandWiddthUnit': {'kb': 2 ** 10, 'kB': 2 ** 10 * 8, 'Mb': 2 ** 20, 'MB': 2 ** 20 * 8, 'Gb': 2 ** 30,
+                                    'GB': 2 ** 30 * 8, 'Tb': 2 ** 40, 'TB': 2 ** 40 * 8}}
 
     if fileUnit in convert_unit['fileUnit/BandWiddthUnit']:
-        size=convert_unit['fileUnit/BandWiddthUnit'][fileUnit] * filesize
+        size = convert_unit['fileUnit/BandWiddthUnit'][fileUnit] * filesize
     if BandWiddthUnit in convert_unit['fileUnit/BandWiddthUnit']:
         speed = convert_unit['fileUnit/BandWiddthUnit'][BandWiddthUnit] * BandWidth
         time = size / speed

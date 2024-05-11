@@ -1,2 +1,3 @@
-login_url =             'http://quotes.toscrape.com/page/1/'
-print(login_url.split('/')[2])
+# list comprehension
+my_dict = {i:i+7 for i in range(1, 10)}
+print(my_dict)

@@ -10,22 +10,22 @@
 # is equal to the number of columns)
 
 def is_identity_matrix(matrix):
-    if matrix==[]:
+    if matrix == []:
         return True
-    n=len(matrix)
-    for i in range(0, n):
-        if n!=len(matrix[i]):
+
+    num_of_rows = len(matrix)
+    for row in matrix:
+        if len(row) != num_of_rows:
             return False
 
-    for i in range(0, n):
-        for j in range(0, n):
-            if i==j:
-                if matrix[i][j]!=1:
+    for row_index in range(num_of_rows):
+        for col_index in range(num_of_rows):
+            if col_index == row_index:
+                if matrix[row_index][col_index] != 1:
                     return False
             else:
-                if matrix[i][j]!=0:
+                if matrix[row_index][col_index] != 0:
                     return False
-
     return True
 
 
