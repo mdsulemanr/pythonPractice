@@ -1,28 +1,20 @@
-"""returns average of input numbers,
-display error message if the input is non-integer"""
-
-
 def get_average():
-    total = 0
-    count = 0
+    numbers = []
+
+    print('Please type a number and hit enter (when you are finished, type done)')
     while True:
+        inp = input('Enter a number: ').strip().lower()
+        if inp == 'done':
+            break
         try:
-            inp = input('Enter a number: ')
-            if inp in ['Done', 'done', 'DONE', '/n']:
-                if total == 0:
-                    return
-                else:
-                    break
-            value = float(inp)
-            total = total + value
-            count = count + 1
-            average = total / count
+            numbers.append(float(inp))
         except ValueError:
-            print('Enter only numbers')
-            continue
-        except ZeroDivisionError:
-            return 0
-    return '{}: {}'.format('Average', average)
+            print("Invalid input!")
+
+    if not numbers:
+        return "No numbers entered."
+
+    return f"Average: {sum(numbers) / len(numbers)}"
 
 
 print(get_average())
