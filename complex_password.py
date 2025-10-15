@@ -1,36 +1,46 @@
-import random
 import string
+import secrets
 
-def generate_complex_password(length=12):
-    # Define character sets
-    uppercase_letters = string.ascii_uppercase
-    lowercase_letters = string.ascii_lowercase
-    digits = string.digits
-    special_characters = string.punctuation
+def generate_complex_password(length: int = 12):
+    """
+    Generate a secure, complex password of given length.
+    Ensures at least one uppercase, lowercase, digit, and special character.
+    """
 
-    # Combine character sets
-    all_characters = uppercase_letters + lowercase_letters + digits + special_characters
-    print(all_characters)
-
-    # Ensure the length is at least 12 characters
     if length < 12:
         raise ValueError("Password length must be at least 12 characters")
 
-    # Generate password
-    password = random.sample(uppercase_letters, 1) + \
-               random.sample(lowercase_letters, 1) + \
-               random.sample(digits, 1) + \
-               random.sample(special_characters, 1) + \
-               random.sample(all_characters, length - 4)
+    # Character groups
+    uppercase = string.ascii_uppercase
+    lowercase = string.ascii_lowercase
+    digits = string.digits
+    specials = "!@#$%^&*()-_=+[]{};:,.?/"
 
-    # Shuffle the password characters
-    random.shuffle(password)
+    # Combine all character groups
+    all_chars = uppercase + lowercase + digits + specials
 
-    # Convert the list to a string
-    password = ''.join(password)
+    # Ensure at least one character from each group
+    password_chars = [
+        secrets.choice(uppercase),
+        secrets.choice(lowercase),
+        secrets.choice(digits),
+        secrets.choice(specials),
+    ]
 
+    # Fill the rest randomly from all characters
+    for _ in range(length - 4):
+        password_chars.append(secrets.choice(all_chars))
+
+    # Secure shuffle (Fisher–Yates)
+    for i in range(len(password_chars) - 1, 0, -1):
+        j = secrets.randbelow(i + 1)
+        password_chars[i], password_chars[j] = password_chars[j], password_chars[i]
+
+    # Convert list to string
+    password = ''.join(password_chars)
     return password
 
-# Example: Generate a complex password with a default length of 12 characters
-password = generate_complex_password()
-print("Generated Password:", password)
+
+# Example usage
+if __name__ == "__main__":
+    print("Generated Password:", generate_complex_password())
