@@ -1,20 +1,23 @@
-"""Check whether the list is sublist or not"""
+from collections import Counter
 
-
-def is_sublist(main_list, sub_list):
-    if sub_list == []:
-        return True
-    if sub_list == main_list:
+def is_subset(sub_list, main_list):
+    """
+    Return True if every element in sub_list appears in main_list
+    with at least the same multiplicity (order doesn't matter).
+    Requires elements to be hashable.
+    """
+    # Quick outs
+    if not sub_list:
         return True
     if len(sub_list) > len(main_list):
         return False
 
-    for i in sub_list:
-        if i not in main_list:
-            return False
-    return True
+    sub_counts = Counter(sub_list)
+    main_counts = Counter(main_list)
+    return all(main_counts.get(x, 0) >= cnt for x, cnt in sub_counts.items())
 
 
+# Examples (correct argument order: is_subset(sub, main))
 a = [2, 4, 3, 5, 7]
 b = [4, -3]
 c = [3, 7]
@@ -24,10 +27,9 @@ f = [2, 4, 7, 3, 5, 1]
 g = ['apple', 'banana', 'orange']
 h = ['apple']
 
-# print(is_sublist(a, b))
-# print(is_sublist(a, c))
-# print(is_sublist(a, d))
-# print(is_sublist(a, e))
-# print(is_sublist(a, f))
-# print(is_sublist(a, c))
-print(is_sublist(g, h))
+print(is_subset(b, a))  # False  (-3 not in a)
+print(is_subset(c, a))  # True
+print(is_subset(d, a))  # True   (empty sub is always subset)
+print(is_subset(e, a))  # True   (same multiset)
+print(is_subset(f, a))  # False  (1 not in a)
+print(is_subset(h, g))  # True
