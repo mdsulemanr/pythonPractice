@@ -12,24 +12,21 @@
 # For this procedure, you will need a way to test if a value is a list. We have
 # provided a procedure, is_list(p) that does this:
 
-def is_list(p):
-    return isinstance(p, list)
 
 
 # It is not necessary to understand how is_list works. It returns True if the
 # input is a List, and returns False otherwise.
 
-def deep_count(p):
-    result=0
-    for i in p:
-        if not is_list(i):
-            result+=1
-        else:
-            result += 1
-            result+=deep_count(i)
-    return result
+def deep_count(data):
+    if not isinstance(data, list):
+        raise TypeError("Input must be a list")
 
-# Your code
+    total = 0
+    for item in data:
+        total += 1
+        if isinstance(item, list):
+            total += deep_count(item)
+    return total
 
 
 print(deep_count([1, 2, 3]))
