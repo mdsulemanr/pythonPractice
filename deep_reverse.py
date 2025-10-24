@@ -9,30 +9,23 @@
 # The procedure is_list below returns True if
 # p is a list and False if it is not.
 
-def is_list(p):
-    return isinstance(p, list)
+def deep_reverse(parameter):
+    if not isinstance(parameter, list):
+        raise TypeError("Input must be a list")
 
-# def deep_reverse(p):
-#     q=[]
-#     for i in reversed(p):
-#         if is_list(i):
-#           q.append(deep_reverse(i))
-#         else:
-#             q.append(i)
-#     return q
-
-def deep_reverse(p):
-    q=[]
-    for i in reversed(p):
-        if not is_list(i):
-          q.append(i)
-        else:
-            q.append(deep_reverse(i))
-    return q
-
-
+    result = []
+    for i in reversed(parameter):
+        result.append(deep_reverse(i) if isinstance(i, list) else i)
+    return result
 
 #For example,
+o = 'abcd'
+print (deep_reverse(o))
+#>>> abcd
+print (o)
+#>>> [1, [2, 3, [4, [5, 6]]]]
+
+
 
 p = [1, [2, 3, [4, [5, 6]]]]
 print (deep_reverse(p))
@@ -45,3 +38,8 @@ print (deep_reverse(q))
 #>>> [ [6,5], 4, [3, 2], 1]
 print (q)
 #>>> [1, [2,3], 4, [5,6]]
+
+r =  [1, 2, 3, 4]
+print (deep_reverse(r))
+#>>> [4, 3, 2, 1]
+print(r)
