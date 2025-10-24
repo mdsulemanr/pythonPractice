@@ -12,3 +12,11 @@ for i in unique:
 
 import collections
 print(collections.Counter(a))
+
+# Alternative (if order doesn’t matter)
+# If you don’t care about order, you can just do:
+
+def return_unique(numbers):
+    return list(set(numbers))
+
+print(return_unique(a))

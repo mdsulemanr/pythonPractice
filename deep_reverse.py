@@ -19,6 +19,13 @@ def deep_reverse(parameter):
     return result
 
 #For example,
+o = 'abcd'
+print (deep_reverse(o))
+#>>> abcd
+print (o)
+#>>> [1, [2, 3, [4, [5, 6]]]]
+
+
 
 p = [1, [2, 3, [4, [5, 6]]]]
 print (deep_reverse(p))
