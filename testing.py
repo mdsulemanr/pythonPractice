@@ -1,23 +1,19 @@
-def calculate_average(numbers):
-    """
-    Calculate the average of a list of numbers.
+def get_num(message1, message2):
+    while True:
+        try:
+            num = int(input(message1))
+            break
+        except ValueError:
+            print(message2)
+    return num
 
-    Parameters:
-        numbers (list): A list of int or float values.
+message1 = "Please enter a number: "
+message2 = "Invalid input! Enter whole numbers only!"
 
-    Returns:
-        float or str: The average value or a message if the list is empty.
-    """
-    if not numbers:  # Safely check if list is empty
-        return "No numbers provided."
+list_of_num = []
 
-    try:
-        return sum(numbers) / len(numbers)
-    except TypeError:
-        return "List must contain only numeric values."
+for i in range(0, 6):
+    abc = get_num( message1, message2 )
+    list_of_num.append(abc)
 
-
-def test_calculate_average():
-    assert calculate_average([10, 20, 30]) == 20
-    assert calculate_average([]) == "No numbers provided."
-    assert calculate_average(["a", 10]) == "List must contain only numeric values."
+print(list_of_num)
