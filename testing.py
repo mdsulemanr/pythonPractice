@@ -1,19 +1,13 @@
-def get_num(message1, message2):
-    while True:
-        try:
-            num = int(input(message1))
-            break
-        except ValueError:
-            print(message2)
-    return num
+ages = [9, 16, 20, 11, 12, 14]
 
-message1 = "Please enter a number: "
-message2 = "Invalid input! Enter whole numbers only!"
+print(min(ages))
+print(max(ages))
 
-list_of_num = []
+x = min(5, 10, 25)
+y = max(5, 10, 25)
 
-for i in range(0, 6):
-    abc = get_num( message1, message2 )
-    list_of_num.append(abc)
+print(x)
+print(y)
 
-print(list_of_num)
+name = input("Enter your name: ")
+print(f"Hello {name}")
