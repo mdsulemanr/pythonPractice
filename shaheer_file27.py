@@ -1,0 +1,20 @@
+import datetime
+
+date = datetime.datetime.now()
+
+print(datetime.datetime.now())
+print(date.strftime("%A"))
+print(date.strftime("%a"))
+print(date.strftime("%w"))
+print(date.strftime("%d"))
+print(date.strftime("%B"))
+print(date.strftime("%b"))
+print(date.strftime("%m"))
+print(date.strftime("%Y"))
+print(date.strftime("%y"))
+print(date.strftime("%H"))
+print(date.strftime("%I"))
+print(date.strftime("%p"))
+print(date.strftime("%M"))
+print(date.strftime("%S"))
+print(date.strftime("%Z"))
