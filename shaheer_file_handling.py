@@ -4,6 +4,7 @@ import os
 # "a" - Append - Opens a file for appending, creates the file if it does not exist
 # "w" - Write - Opens a file for writing, creates the file if it does not exist
 # "x" - Create - Creates the specified file, returns an error if the file exists
+
 FILE_PATH = "C:/Users/DELL/OneDrive/Documents/Arisha Website/story.txt"
 
 if not os.path.exists(FILE_PATH):
@@ -15,7 +16,7 @@ write_file.write('This is my new content. ')
 write_file.close()
 
 append_file = open(FILE_PATH, "a")
-append_file.write('BLABLABLA')
+append_file.write('Going to add new line BLABLABLA.')
 append_file.close()
 
 read_file = open(FILE_PATH, "r")
