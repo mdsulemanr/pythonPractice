@@ -14,7 +14,7 @@ def get_average():
     if not numbers:
         return "No numbers entered."
 
-    return f"Average: {sum(numbers) / len(numbers)}"
+    return f"This is the average of your entered numbers: {sum(numbers) / len(numbers)}"
 
 
 print(get_average())
